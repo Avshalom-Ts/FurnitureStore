@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { SharedModule } from './shared/shared.module';
 import { PrivateModule } from './private/private.module';
+import { PublicModule } from './public/public.module';
+import { HomeComponent } from './public/home/home.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +16,7 @@ import { PrivateModule } from './private/private.module';
     AppRoutingModule,
     SharedModule,
     PrivateModule,
+    PublicModule,
     TooltipModule.forRoot(),
   ],
   providers: [],

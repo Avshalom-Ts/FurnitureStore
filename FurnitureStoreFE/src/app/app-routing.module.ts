@@ -1,9 +1,15 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './public/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    component: HomeComponent,
+  },
+  {
+    path: 'admin-dashboard',
     loadChildren: () =>
       import('./private/private.module').then((m) => m.PrivateModule),
   },
