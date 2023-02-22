@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../product';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-all-products',
@@ -13,6 +14,19 @@ export class AllProductsComponent {
     'Children Rooms',
     'Home Decorations',
   ];
+
+  addProduct = new FormGroup({
+    id: new FormControl(''),
+    category: new FormControl(''),
+    productName: new FormControl(''),
+    price: new FormControl(''),
+    description: new FormControl(''),
+    quantity: new FormControl(''),
+  });
+
+  onSubmit() {
+    console.log(this.addProduct.value);
+  }
 
   itemsList: Product[] = [
     {

@@ -5,6 +5,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { PrivateRoutingModule } from '../private-routing.module';
 import { AllProductsComponent } from './products/all-products/all-products.component';
 import { EditProductsComponent } from './products/edit-products/edit-products.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,12 @@ import { EditProductsComponent } from './products/edit-products/edit-products.co
     AllProductsComponent,
     EditProductsComponent,
   ],
-  imports: [CommonModule, PrivateRoutingModule],
+  imports: [
+    CommonModule,
+    PrivateRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [],
 })
 export class AdminModule {}
