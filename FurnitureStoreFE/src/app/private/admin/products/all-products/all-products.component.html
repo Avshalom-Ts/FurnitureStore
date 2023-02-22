@@ -1,9 +1,12 @@
-<div class="container text-center">
+<div class="container text-center mt-5">
   <div class="row align-items-start">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">No</th>
+          <th scope="col">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary mx-2">Add
+              product</button>
+          </th>
           <!-- Category as dropDown -->
           <th scope="col">Category</th>
           <th scope="col">Product Name</th>
@@ -14,13 +17,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Leaving room</td>
-          <td>Sofa</td>
-          <td>10,000</td>
-          <td>Very expensive Sofa!!</td>
-          <td>83</td>
+        <tr *ngFor="let item of itemsList">
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.category}}</td>
+          <td>{{item.productName}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.quantity}}</td>
           <td>
             <button class="btn btn-danger mx-2">Delete</button>
             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -38,24 +41,38 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
-          <label for=""></label>
-
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Choose Category
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item">Leaving room</a></li>
-              <li><a class="dropdown-item">Bed Rooms</a></li>
-              <li><a class="dropdown-item">Children Rooms</a></li>
-              <li><a class="dropdown-item">Home Decorations</a></li>
-            </ul>
+          <div class="mb-3">
+            <label for="categoryName" class="form-label">Category Name</label>
+            <div class="dropdown">
+              <button id="categoryName" class="btn btn-secondary dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Choose Category
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" *ngFor="let category of categories">{{category}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" placeholder="Product Name" id="productName" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" placeholder="Price" id="price" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <textarea placeholder="Description" id="desc" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="itemInStock" class="form-label">Item In Stock</label>
+            <input type="number" placeholder="Item In Stock" id="itemInStock" class="form-control">
           </div>
         </form>
       </div>

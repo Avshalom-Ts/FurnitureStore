@@ -14,10 +14,6 @@ const routes: Routes = [
         path: 'all-products',
         component: AllProductsComponent,
       },
-      {
-        path: 'add-product',
-        component: AddProductComponent,
-      },
     ],
   },
 ];
