@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-
-export interface items {
-  id: number;
-  category: string;
-  productName: string;
-  price: number;
-  description: string;
-  quantity: number;
-}
+import { Product } from '../product';
 
 @Component({
   selector: 'app-all-products',
@@ -22,7 +14,7 @@ export class AllProductsComponent {
     'Home Decorations',
   ];
 
-  itemsList: items[] = [
+  itemsList: Product[] = [
     {
       id: 1,
       category: 'Leaving room',
