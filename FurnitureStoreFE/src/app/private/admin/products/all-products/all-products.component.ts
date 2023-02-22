@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../product';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-all-products',
@@ -16,15 +16,15 @@ export class AllProductsComponent {
   ];
 
   addProduct = new FormGroup({
-    id: new FormControl(''),
-    category: new FormControl(''),
-    productName: new FormControl(''),
-    price: new FormControl(''),
-    description: new FormControl(''),
-    quantity: new FormControl(''),
+    category: new FormControl('', [Validators.required]),
+    productName: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    quantity: new FormControl('', [Validators.required]),
   });
 
   onSubmit() {
+    if (this.addProduct.invalid) return alert('Invalid form');
     console.log(this.addProduct.value);
   }
 
