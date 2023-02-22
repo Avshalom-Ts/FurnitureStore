@@ -1,3 +1,15 @@
-<button routerLink="all-products" class="btn btn-primary">All products</button>
-<button routerLink="add-product" class="btn btn-primary">Add product</button>
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col-2">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <button routerLink="all-products" class="btn btn-primary mx-2 active">All products</button>
+      </li>
+      <li class="list-group-item">
+        <button routerLink="add-product" class="btn btn-primary mx-2">Add product</button>
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>
